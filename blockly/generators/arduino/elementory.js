@@ -41,7 +41,7 @@ Blockly.Arduino['lcd_print'] = function(block) {
   var text = Blockly.Arduino.valueToCode(this, 'Message', Blockly.Arduino.ORDER_ATOMIC);
   var line = Blockly.Arduino.valueToCode(this, 'Line', Blockly.Arduino.ORDER_ATOMIC);
   var pos = Blockly.Arduino.valueToCode(this, 'Position', Blockly.Arduino.ORDER_ATOMIC);
-
+  Blockly.Arduino.addSetup('','lcd.init();',true);
   Blockly.Arduino.definitions_['define_elementory'] = '#include <elementory.h>\n';
   var code = 'lcd.setCursor(' + pos + ',' + line +');\n';
   code+='lcd.print('+text+');\n';
@@ -51,12 +51,22 @@ Blockly.Arduino['lcd_print'] = function(block) {
 Blockly.Arduino['lcd_clear'] = function(block) {
 
   Blockly.Arduino.definitions_['define_elementory'] = '#include <elementory.h>\n';
+  Blockly.Arduino.addSetup('lcd.init();');
   var code = 'lcd.clear();\n';
   return code;
 };
 
 Blockly.Arduino['pump_start'] = function(block) {
   var dropdown_pin = this.getFieldValue('PORT');
+  var stateOutput = Blockly.Arduino.valueToCode(
+      block, 'STATE', Blockly.Arduino.ORDER_ATOMIC) || 'LOW';
+
+  Blockly.Arduino.reservePin(
+      block, dropdown_pin, Blockly.Arduino.PinTypes.OUTPUT, 'Digital Write');
+
+  var pinSetupCode = 'pinMode(' + dropdown_pin + ', OUTPUT);';
+  Blockly.Arduino.addSetup('io_' + dropdown_pin, pinSetupCode, false);
+
   Blockly.Arduino.definitions_['define_elementory'] = '#include <elementory.h>\n';
   var code = 'pump_start('+dropdown_pin+');\n';
   return [code, Blockly.Arduino.ORDER_ATOMIC];
@@ -64,7 +74,15 @@ Blockly.Arduino['pump_start'] = function(block) {
 
 Blockly.Arduino['pump_stop'] = function(block) {
   var dropdown_pin = this.getFieldValue('PORT');
+  var stateOutput = Blockly.Arduino.valueToCode(
+      block, 'STATE', Blockly.Arduino.ORDER_ATOMIC) || 'LOW';
+
+  Blockly.Arduino.reservePin(
+      block, dropdown_pin, Blockly.Arduino.PinTypes.OUTPUT, 'Digital Write');
+
+  var pinSetupCode = 'pinMode(' + dropdown_pin + ', OUTPUT);';
+  Blockly.Arduino.addSetup('io_' + dropdown_pin, pinSetupCode, false);
   Blockly.Arduino.definitions_['define_elementory'] = '#include <elementory.h>\n';
   var code = 'pump_stop('+dropdown_pin+');\n';
-  return [code, Blockly.Arduino.ORDER_ATOMIC];
+  return code;
 };
