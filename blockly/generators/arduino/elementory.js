@@ -54,3 +54,17 @@ Blockly.Arduino['lcd_clear'] = function(block) {
   var code = 'lcd.clear();\n';
   return code;
 };
+
+Blockly.Arduino['pump_start'] = function(block) {
+  var dropdown_pin = this.getFieldValue('PORT');
+  Blockly.Arduino.definitions_['define_elementory'] = '#include <elementory.h>\n';
+  var code = 'pump_start('+dropdown_pin+');\n';
+  return [code, Blockly.Arduino.ORDER_ATOMIC];
+};
+
+Blockly.Arduino['pump_stop'] = function(block) {
+  var dropdown_pin = this.getFieldValue('PORT');
+  Blockly.Arduino.definitions_['define_elementory'] = '#include <elementory.h>\n';
+  var code = 'pump_stop('+dropdown_pin+');\n';
+  return [code, Blockly.Arduino.ORDER_ATOMIC];
+};

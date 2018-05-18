@@ -85,3 +85,34 @@ Blockly.Blocks['lcd_clear'] = {
     this.setNextStatement(true, null);
   }
 };
+
+
+Blockly.Blocks['pump_start'] = {
+  init: function() {
+    var options = [['1', '10'], ['2', '9'], ['3', '6'], ['4', '5'],['5', '3']];
+    this.setColour(150);
+    this.appendDummyInput()
+        .appendField("Start Pump")
+        .appendField(new Blockly.FieldImage("https://mi3.rightinthebox.com/images/384x384/201707/jjjalq1501497786657.jpg",64,64))
+        .appendField("Output PORT#")
+        .appendField(new Blockly.FieldDropdown(options), "PORT");
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setTooltip('Start the pump');
+  }
+};
+
+Blockly.Blocks['pump_stop'] = {
+  init: function() {
+    var options = [['1', '10'], ['2', '9'], ['3', '6'], ['4', '5'],['5', '3']];
+    this.setColour(150);
+    this.appendDummyInput()
+        .appendField("Stop Pump")
+        .appendField(new Blockly.FieldImage("https://mi3.rightinthebox.com/images/384x384/201707/jjjalq1501497786657.jpg",64,64))
+        .appendField("Output PORT#")
+        .appendField(new Blockly.FieldDropdown(options), "PORT");
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setTooltip('Stop the pump');
+  }
+};
