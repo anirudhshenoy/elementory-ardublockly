@@ -17,7 +17,7 @@ Ardublockly.TOOLBOX_XML =
 '    <block type="get_light_intensity"></block>'+
 '    <block type="get_temperature"></block>'+
 '    <block type="lcd_print">'+
-'      <value name="TEXT">'+
+'      <value name="Message">'+
 '        <block type="text">'+
 '          <field name="TEXT"></field>'+
 '        </block>'+
