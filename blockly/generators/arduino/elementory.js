@@ -18,9 +18,8 @@ goog.require('Blockly.Arduino');
 Blockly.Arduino['get_humidity'] = function(block) {
   var dropdown_pin = this.getFieldValue('PORT');
   Blockly.Arduino.definitions_['define_elementory'] = '#include <elementory.h>\n';
-  //var code = "readHumidity(" + dropdown_pin + ");\n"
   var code = 'readHumidity('+dropdown_pin+')';
-  return code;
+  return [code, Blockly.Arduino.ORDER_ATOMIC];
 };
 
 Blockly.Arduino['get_light_intensity'] = function(block) {
@@ -38,14 +37,15 @@ Blockly.Arduino['get_temperature'] = function(block) {
 };
 
 Blockly.Arduino['lcd_print'] = function(block) {
-  var text = Blockly.Arduino.valueToCode(this, 'TEXT', Blockly.Arduino.ORDER_UNARY_POSTFIX);
+  //var text = Blockly.Arduino.valueToCode(this, 'TEXT', Blockly.Arduino.ORDER_UNARY_POSTFIX);
+  var text = Blockly.Arduino.valueToCode(this, 'Message', Blockly.Arduino.ORDER_ATOMIC);
   var line = Blockly.Arduino.valueToCode(this, 'Line', Blockly.Arduino.ORDER_ATOMIC);
   var pos = Blockly.Arduino.valueToCode(this, 'Position', Blockly.Arduino.ORDER_ATOMIC);
 
   Blockly.Arduino.definitions_['define_elementory'] = '#include <elementory.h>\n';
   var code = 'lcd.setCursor(' + pos + ',' + line +');\n';
   code+='lcd.print('+text+');\n';
-  return code;
+  return [code, Blockly.Arduino.ORDER_ATOMIC];
 };
 
 Blockly.Arduino['lcd_clear'] = function(block) {

@@ -54,7 +54,7 @@ Blockly.Blocks['lcd_print'] = {
     this.appendDummyInput()
         .appendField("LCD Print")
         .appendField(new Blockly.FieldImage("https://statics3.seeedstudio.com/images/product/Serial%20LCD.jpg", 64, 64))
-    this.appendValueInput("TEXT", 'String')
+    this.appendValueInput("Message", 'String')
           //.setCheck('String')
           .setAlign(Blockly.ALIGN_RIGHT)
           .appendField("Message");
