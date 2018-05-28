@@ -9,7 +9,7 @@ Blockly.Blocks['get_humidity'] = {
     this.setColour(120);
     this.appendDummyInput()
         .appendField("Humidity Sensor")
-      //  .appendField(new Blockly.FieldImage("https://elementory.in/wp-content/uploads/2018/03/elt_small.png"))
+        .appendField(new Blockly.FieldImage("http://www.elektrojo.com/448-large_default/dht11-temperature-relative-humidity-sensor-module.jpg",64,64))
         .appendField("PORT#")
         .appendField(new Blockly.FieldDropdown(options), "PORT");
     this.setOutput(true, 'Number');
@@ -24,7 +24,7 @@ Blockly.Blocks['get_light_intensity'] = {
     this.setColour(120);
     this.appendDummyInput()
         .appendField("Light Sensor")
-      //  .appendField(new Blockly.FieldImage("https://elementory.in/wp-content/uploads/2018/03/elt_small.png"))
+        .appendField(new Blockly.FieldImage("https://potentiallabs.com/cart/image/cache/catalog/LDR-800x800.jpg",64,64))
         .appendField("PORT#")
         .appendField(new Blockly.FieldDropdown(options), "PORT");
     this.setOutput(true, 'Number');
@@ -44,6 +44,21 @@ Blockly.Blocks['get_temperature'] = {
         .appendField(new Blockly.FieldDropdown(options), "PORT");
     this.setOutput(true, 'Number');
     this.setTooltip('Get Temperture in Celsius from Sensor');
+  }
+};
+
+Blockly.Blocks['get_ultrasonic_distance'] = {
+
+  init: function() {
+    var options = [['1', 'A0'], ['2', 'A1'], ['3', 'A2'], ['4', 'A3']];
+    this.setColour(120);
+    this.appendDummyInput()
+        .appendField("Ultrasonic Distance ")
+        .appendField(new Blockly.FieldImage("https://www.makerlab-electronics.com/my_uploads/2016/05/ultrasonic-sensor-HCSR04-1.jpg",64,64))
+        .appendField("PORT#")
+        .appendField(new Blockly.FieldDropdown(options), "PORT");
+    this.setOutput(true, 'Number');
+    this.setTooltip('Get Distance from Ultrasonic Sensor');
   }
 };
 
