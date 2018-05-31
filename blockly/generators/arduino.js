@@ -381,6 +381,8 @@ Blockly.Arduino.getArduinoType_ = function(typeBlockly) {
       return 'String';
     case Blockly.Types.CHARACTER.typeId:
       return 'char';
+    case Blockly.Types.DATETIME.typeId:
+      return 'DateTime';
     case Blockly.Types.BOOLEAN.typeId:
       return 'boolean';
     case Blockly.Types.NULL.typeId:

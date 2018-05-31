@@ -15,7 +15,12 @@ Ardublockly.TOOLBOX_XML =
 '  <category id="catElementory" name="Elementory">'+
 '    <block type="get_humidity"></block>'+
 '    <block type="get_light_intensity"></block>'+
+'    <block type="get_ultrasonic_distance"></block>'+
 '    <block type="get_temperature"></block>'+
+'    <block type="pump_start"></block>'+
+'    <block type="pump_stop"></block>'+
+'    <block type="save_time"></block>'+
+'    <block type="get_time"></block>'+
 '    <block type="lcd_print">'+
 '      <value name="Message">'+
 '        <block type="text">'+

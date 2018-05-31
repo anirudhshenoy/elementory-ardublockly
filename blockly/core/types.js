@@ -42,6 +42,13 @@ Blockly.Types.SHORT_NUMBER = new Blockly.Type({
 });
 
 /** Integer number. */
+Blockly.Types.DATETIME = new Blockly.Type({
+  typeId: 'DateTime',
+  typeMsgName: 'ARD_TYPE_DATETIME',
+  compatibleTypes: []    // Circular dependencies, add after all declarations
+});
+
+/** Integer number. */
 Blockly.Types.NUMBER = new Blockly.Type({
   typeId: 'Number',
   typeMsgName: 'ARD_TYPE_NUMBER',
@@ -221,4 +228,3 @@ Blockly.Types.identifyNumber = function(numberString) {
     }
     return Blockly.Types.NULL;
 };
-
