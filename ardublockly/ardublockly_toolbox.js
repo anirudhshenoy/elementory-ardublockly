@@ -20,6 +20,7 @@ Ardublockly.TOOLBOX_XML =
 '    <block type="pump_start"></block>'+
 '    <block type="pump_stop"></block>'+
 '    <block type="save_time"></block>'+
+'    <block type="get_time"></block>'+
 '    <block type="lcd_print">'+
 '      <value name="Message">'+
 '        <block type="text">'+

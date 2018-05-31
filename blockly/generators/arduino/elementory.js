@@ -54,7 +54,7 @@ Blockly.Arduino['lcd_print'] = function(block) {
   var line = Blockly.Arduino.valueToCode(this, 'Line', Blockly.Arduino.ORDER_ATOMIC);
   var pos = Blockly.Arduino.valueToCode(this, 'Position', Blockly.Arduino.ORDER_ATOMIC);
 
-  Blockly.Arduino.addSetup('','lcd.init();\nlcd.backlight();',true);
+  Blockly.Arduino.addSetup('','lcd.init();\n  lcd.backlight();',true);
   //Blockly.Arduino.definitions_['define_elementory'] = '#include <elementory.h>\n';
   Blockly.Arduino.addInclude('', '#include <elementory.h>');
   var code = 'lcd.setCursor(' + pos + ',' + line +');\n';
@@ -107,4 +107,13 @@ Blockly.Arduino['save_time'] = function(block) {
   //Blockly.Arduino.definitions_['define_var'] = 'DateTime ' + varName +';\n';
   Blockly.Arduino.addSetup('','rtc.begin();',true);
   return varName + ' = rtc.now();\n';
+};
+
+Blockly.Arduino['get_time'] = function(block) {
+  var time_option = this.getFieldValue('option');
+  Blockly.Arduino.addInclude('', '#include <elementory.h>');
+  Blockly.Arduino.addSetup('','rtc.begin();',true);
+
+  var code = 'getTime(\''+time_option+'\')';
+  return [code, Blockly.Arduino.ORDER_ATOMIC];
 };

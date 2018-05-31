@@ -138,7 +138,7 @@ Blockly.Blocks['pump_stop'] = {
 Blockly.Blocks['save_time'] = {
   init: function() {
     this.appendDummyInput()
-          .appendField('Get Current Time and store in:')
+          .appendField('Save Current Time in:')
           .appendField(new Blockly.FieldVariable(
           Blockly.Msg.TEXT_APPEND_VARIABLE), 'VAR');
     this.setColour(150);
@@ -154,5 +154,17 @@ Blockly.Blocks['save_time'] = {
  */
 getVarType: function(varName) {
   return Blockly.Types.DATETIME;
-}
+  }
+};
+
+Blockly.Blocks['get_time'] = {
+  init: function() {
+    var options = [['Hour', 'h'], ['Minute', 'm'], ['Second', 's'], ['Year', 'Y'],['Month', 'M'],['Day', 'D']];
+    this.appendDummyInput()
+          .appendField('Get the current ')
+          .appendField(new Blockly.FieldDropdown(options), "option");
+    this.setColour(150);
+    this.setOutput(true, 'Number');
+    this.setTooltip('Get Date and Time from RTC');
+  }
 };
