@@ -168,3 +168,36 @@ Blockly.Blocks['get_time'] = {
     this.setTooltip('Get Date and Time from RTC');
   }
 };
+
+Blockly.Blocks['save_memory_time'] = {
+
+  init: function() {
+    this.setColour(120);
+    this.appendDummyInput()
+        .appendField("Save ")
+        .appendField(new Blockly.FieldVariable(
+        Blockly.Msg.TEXT_APPEND_VARIABLE), 'VAR')
+        .appendField('to memory');
+    this.setTooltip('Save time to memory');
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+  },
+  getVarType: function(varName) {
+    return Blockly.Types.DATETIME;
+    }
+};
+
+Blockly.Blocks['read_memory_time'] = {
+
+  init: function() {
+    var options = [['Hour', 'h'], ['Minute', 'm'], ['Second', 's'], ['Year', 'Y'],['Month', 'M'],['Day', 'D']];
+    this.setColour(120);
+    this.appendDummyInput()
+        .appendField("Read ")
+        .appendField(new Blockly.FieldDropdown(options), "option")
+        .appendField(" from memory");
+
+    this.setOutput(true, 'Number');
+    this.setTooltip('Read time from memory');
+  }
+};

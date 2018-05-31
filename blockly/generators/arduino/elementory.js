@@ -117,3 +117,22 @@ Blockly.Arduino['get_time'] = function(block) {
   var code = 'getTime(\''+time_option+'\')';
   return [code, Blockly.Arduino.ORDER_ATOMIC];
 };
+
+
+Blockly.Arduino['save_memory_time'] = function(block) {
+  var varName = Blockly.Arduino.variableDB_.getName(block.getFieldValue('VAR'), Blockly.Variables.NAME_TYPE);
+  Blockly.Arduino.addInclude('', '#include <elementory.h>');
+  //Blockly.Arduino.definitions_['define_var'] = 'DateTime ' + varName +';\n';
+  Blockly.Arduino.addSetup('','rtc.begin();',true);
+  return 'NVRAMWritelong('+varName+'.unixtime());';
+};
+
+Blockly.Arduino['read_memory_time'] = function(block) {
+  var time_option = this.getFieldValue('option');
+  Blockly.Arduino.addInclude('', '#include <elementory.h>');
+  //Blockly.Arduino.definitions_['define_var'] = 'DateTime ' + varName +';\n';
+  Blockly.Arduino.addSetup('','rtc.begin();',true);
+  var code = 'ReadMemoryTime(\''+time_option+'\')';
+  return [code, Blockly.Arduino.ORDER_ATOMIC];
+
+};
