@@ -131,3 +131,28 @@ Blockly.Blocks['pump_stop'] = {
     this.setTooltip('Stop the pump');
   }
 };
+
+
+
+
+Blockly.Blocks['save_time'] = {
+  init: function() {
+    this.appendDummyInput()
+          .appendField('Get Current Time and store in:')
+          .appendField(new Blockly.FieldVariable(
+          Blockly.Msg.TEXT_APPEND_VARIABLE), 'VAR');
+    this.setColour(150);
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setTooltip('Save the current time in a Variable');
+  },
+/**
+ * Set's the type of the variable selected in the drop down list. As there is
+ * only one possible option, the variable input is not really checked.
+ * @param {!string} varName Name of the variable to check type.
+ * @return {string} String to indicate the variable type.
+ */
+getVarType: function(varName) {
+  return Blockly.Types.DATETIME;
+}
+};
