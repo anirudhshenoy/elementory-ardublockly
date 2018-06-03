@@ -154,20 +154,33 @@ Ardublockly.TOOLBOX_XML =
 '  <category id="catFunctions" name="Functions" custom="PROCEDURE"></category>' +
 '  <sep></sep>' +
 '  <category id="catInputOutput" name="Input/Output">' +
+/*'    <block type="io_digitalwrite">' +
+'      <value name="STATE">' +
+'        <block type="io_highlow"></block>' +
+'      </value>' +
+'    </block>' +
+*/
 '    <block type="io_digitalwrite">' +
 '      <value name="STATE">' +
 '        <block type="io_highlow"></block>' +
 '      </value>' +
 '    </block>' +
-'    <block type="io_digitalread"></block>' +
+/*'    <block type="io_digitalread"></block>' +
 '    <block type="io_builtin_led">' +
 '      <value name="STATE">' +
 '        <block type="io_highlow"></block>' +
 '      </value>' +
 '    </block>' +
-'    <block type="io_analogwrite"></block>' +
+*/
+'    <block type="io_analogwrite">'+
+'       <value name="NUM">' +
+'        <block type="math_number">' +
+'          <field name="NUM">1</field>' +
+'        </block>' +
+'      </value>' +
+'    </block>' +
 '    <block type="io_analogread"></block>' +
-'    <block type="io_highlow"></block>' +
+/*'    <block type="io_highlow"></block>' +
 '    <block type="io_pulsein">' +
 '      <value name="PULSETYPE">' +
 '        <shadow type="io_highlow"></shadow>' +
@@ -183,6 +196,7 @@ Ardublockly.TOOLBOX_XML =
 '        </shadow>' +
 '      </value>'+
 '    </block>' +
+*/
 '  </category>' +
 '  <sep></sep>' +
 '  <category id="catTime" name="Time">' +

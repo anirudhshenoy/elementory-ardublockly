@@ -19,8 +19,8 @@ Blockly.Arduino['get_humidity'] = function(block) {
   var dropdown_pin = this.getFieldValue('PORT');
 //  Blockly.Arduino.definitions_['define_elementory'] = '#include <elementory.h>\n';
   Blockly.Arduino.addInclude('', '#include <elementory.h>');
-  var code = 'readHumidity('+dropdown_pin+')';
-  code+='delay(2000)';
+  var code = 'readHumidity('+dropdown_pin+');';
+  code+='\ndelay(2000)';
   return [code, Blockly.Arduino.ORDER_ATOMIC];
 };
 

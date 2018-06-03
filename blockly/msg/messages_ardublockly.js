@@ -59,8 +59,8 @@ Blockly.Msg.ARD_TYPE_UNDEF = 'Undefined';
 Blockly.Msg.ARD_TYPE_CHILDBLOCKMISSING = 'ChildBlockMissing';
 
 /// Arduino Blocks
-Blockly.Msg.ARD_HIGH = 'HIGH';
-Blockly.Msg.ARD_LOW = 'LOW';
+Blockly.Msg.ARD_HIGH = 'ON';
+Blockly.Msg.ARD_LOW = 'OFF';
 Blockly.Msg.ARD_ANALOGREAD = 'read analog pin#';
 Blockly.Msg.ARD_ANALOGREAD_TIP = 'Return value between 0 and 1024';
 Blockly.Msg.ARD_ANALOGWRITE = 'set analog pin#';
@@ -94,11 +94,11 @@ Blockly.Msg.ARD_SERIAL_PRINT = 'print';
 Blockly.Msg.ARD_SERIAL_PRINT_NEWLINE = 'add new line';
 Blockly.Msg.ARD_SERIAL_PRINT_TIP = 'Prints data to the console/serial port as human-readable ASCII text.';
 Blockly.Msg.ARD_SERIAL_PRINT_WARN = 'A setup block for %1 must be added to the workspace to use this block!';
-Blockly.Msg.ARD_SERVO_WRITE = 'set SERVO from Pin';
+Blockly.Msg.ARD_SERVO_WRITE = 'set SERVO on PORT';
 Blockly.Msg.ARD_SERVO_WRITE_TO = 'to';
 Blockly.Msg.ARD_SERVO_WRITE_DEG_180 = 'Degrees (0~180)';
 Blockly.Msg.ARD_SERVO_WRITE_TIP = 'Set a Servo to an specified angle';
-Blockly.Msg.ARD_SERVO_READ = 'read SERVO from PIN#';
+Blockly.Msg.ARD_SERVO_READ = 'Read SERVO angle on PORT#';
 Blockly.Msg.ARD_SERVO_READ_TIP = 'Read a Servo angle';
 Blockly.Msg.ARD_SPI_SETUP = 'Setup';
 Blockly.Msg.ARD_SPI_SETUP_CONF = 'configuration:';
@@ -158,11 +158,11 @@ Blockly.Msg.ARD_PULSE_READ_TIMEOUT = 'measure %1 pulse on pin #%2 (timeout after
 Blockly.Msg.ARD_PULSE_TIP = 'Measures the duration of a pulse on the selected pin.';
 /// IO blocks - pulseIn - Tooltip for pulseIn() block when it uses the optional argument for time-out.
 Blockly.Msg.ARD_PULSETIMEOUT_TIP = 'Measures the duration of a pulse on the selected pin, if it is within the time-out in microseconds.';
-Blockly.Msg.ARD_SETTONE = 'Set tone on pin #';
+Blockly.Msg.ARD_SETTONE = 'Set tone on PORT #';
 Blockly.Msg.ARD_TONEFREQ = 'at frequency';
-Blockly.Msg.ARD_TONE_TIP = 'Sets tone on pin to specified frequency within range 31 - 65535';
+Blockly.Msg.ARD_TONE_TIP = 'Sets tone on PORT to specified frequency within range 31 - 65535';
 Blockly.Msg.ARD_TONE_WARNING = 'Frequency must be in range 31 - 65535';
-Blockly.Msg.ARD_NOTONE = 'Turn off tone on pin #';
+Blockly.Msg.ARD_NOTONE = 'Turn off tone on PORT #';
 Blockly.Msg.ARD_NOTONE_TIP = 'Turns the tone off on the selected pin';
 
 /**

@@ -19,6 +19,8 @@ goog.require('Blockly.Types');
 
 /** Common HSV hue for all blocks in this category. */
 Blockly.Blocks.io.HUE = 250;
+Blockly.Blocks.io.HUEOUTPUT = 0;
+Blockly.Blocks.io.HUEINPUT = 130;
 
 Blockly.Blocks['io_digitalwrite'] = {
   /**
@@ -27,11 +29,11 @@ Blockly.Blocks['io_digitalwrite'] = {
    */
   init: function() {
     this.setHelpUrl('http://arduino.cc/en/Reference/DigitalWrite');
-    this.setColour(Blockly.Blocks.io.HUE);
+    this.setColour(Blockly.Blocks.io.HUEOUTPUT);
     this.appendValueInput('STATE')
-        .appendField(Blockly.Msg.ARD_DIGITALWRITE)
+        .appendField('Set Output PORT #')
         .appendField(new Blockly.FieldDropdown(
-            Blockly.Arduino.Boards.selected.digitalPins), 'PIN')
+            Blockly.Arduino.Boards.selected.outputPortPWM), 'PIN')
         .appendField(Blockly.Msg.ARD_WRITE_TO)
         .setCheck(Blockly.Types.BOOLEAN.checkList);
     this.setInputsInline(false);
@@ -118,11 +120,11 @@ Blockly.Blocks['io_analogwrite'] = {
    */
   init: function() {
     this.setHelpUrl('http://arduino.cc/en/Reference/AnalogWrite');
-    this.setColour(Blockly.Blocks.io.HUE);
+    this.setColour(Blockly.Blocks.io.HUEOUTPUT);
     this.appendValueInput('NUM')
-        .appendField(Blockly.Msg.ARD_ANALOGWRITE)
+        .appendField('Set Output Level on PORT#')
         .appendField(new Blockly.FieldDropdown(
-            Blockly.Arduino.Boards.selected.pwmPins), 'PIN')
+            Blockly.Arduino.Boards.selected.outputPortPWM), 'PIN')
         .appendField(Blockly.Msg.ARD_WRITE_TO)
         .setCheck(Blockly.Types.NUMBER.output);
     this.setInputsInline(false);
@@ -150,11 +152,11 @@ Blockly.Blocks['io_analogread'] = {
    */
   init: function() {
     this.setHelpUrl('http://arduino.cc/en/Reference/AnalogRead');
-    this.setColour(Blockly.Blocks.io.HUE);
+    this.setColour(Blockly.Blocks.io.HUEINPUT);
     this.appendDummyInput()
-        .appendField(Blockly.Msg.ARD_ANALOGREAD)
+        .appendField('Read Input Level on PORT#')
         .appendField(new Blockly.FieldDropdown(
-            Blockly.Arduino.Boards.selected.analogPins), 'PIN');
+            Blockly.Arduino.Boards.selected.inputPort), 'PIN');
     this.setOutput(true, Blockly.Types.NUMBER.output);
     this.setTooltip(Blockly.Msg.ARD_ANALOGREAD_TIP);
   },

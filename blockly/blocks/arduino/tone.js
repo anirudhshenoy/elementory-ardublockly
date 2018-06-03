@@ -24,7 +24,7 @@ Blockly.Blocks['io_tone'] = {
     this.appendDummyInput()
         .appendField(Blockly.Msg.ARD_SETTONE)
         .appendField(new Blockly.FieldDropdown(
-            Blockly.Arduino.Boards.selected.digitalPins), "TONEPIN");
+            Blockly.Arduino.Boards.selected.outputPortPWM), "TONEPIN");
     this.appendValueInput("FREQUENCY")
         .setCheck(Blockly.Types.NUMBER.checkList)
         .appendField(Blockly.Msg.ARD_TONEFREQ);
@@ -64,7 +64,7 @@ Blockly.Blocks['io_notone'] = {
     this.appendDummyInput()
         .appendField(Blockly.Msg.ARD_NOTONE)
         .appendField(new Blockly.FieldDropdown(
-            Blockly.Arduino.Boards.selected.digitalPins), "TONEPIN");
+            Blockly.Arduino.Boards.selected.outputPortPWM), "TONEPIN");
     this.setPreviousStatement(true);
     this.setNextStatement(true);
     this.setColour(Blockly.Blocks.tone.HUE);

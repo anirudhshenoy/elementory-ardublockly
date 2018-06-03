@@ -166,4 +166,4 @@ Blockly.Arduino['io_pulsetimeout'] = function(block) {
   var code = 'pulseIn(' + pin + ', ' + type + ', ' + timeout + ')';
 
   return [code, Blockly.Arduino.ORDER_ATOMIC];
-}; 
+};
