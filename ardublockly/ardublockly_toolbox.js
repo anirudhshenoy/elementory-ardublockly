@@ -124,7 +124,14 @@ Ardublockly.TOOLBOX_XML =
 '      </value>' +
 '    </block>' +
 '    <block type="math_random_float"></block>' +
-'    <block type="base_map"></block>' +
+'    <block type="base_map">'+
+'        <block type="math_number">' +
+'          <field name="DMIN">0</field>' +
+'        </block>' +
+'        <block type="math_number">' +
+'          <field name="DMAX">255</field>' +
+'        </block>' +
+'    </block>' +
 '  </category>' +
 '  <sep></sep>' +
 '  <category id="catText" name="Text">' +

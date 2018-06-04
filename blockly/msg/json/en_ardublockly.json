@@ -1,7 +1,7 @@
 {
 	"@metadata": {
 		"author": "carlosperate",
-		"lastupdated": "2018-06-03 22:13:27.039000",
+		"lastupdated": "2018-06-04 11:15:42.594000",
 		"locale": "en",
 		"messagedocumentation" : "qqq_ardublockly"
 	},
@@ -37,7 +37,7 @@
 	"ARD_NOTONE_PIN": "No tone PIN#",
 	"ARD_NOTONE_PIN_TIP": "Stop generating a tone on a pin",
 	"ARD_MAP": "Map",
-	"ARD_MAP_VAL": "value to [0-",
+	"ARD_MAP_VAL": "value to [",
 	"ARD_MAP_TIP": "Re-maps a number from [0-1024] to another.",
 	"ARD_FUN_RUN_SETUP": "Arduino run first:",
 	"ARD_FUN_RUN_LOOP": "Arduino loop forever:",
