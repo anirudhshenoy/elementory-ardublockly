@@ -12,17 +12,28 @@ var Ardublockly = Ardublockly || {};
 Ardublockly.TOOLBOX_XML =
 '<xml>' +
 '  <sep></sep>' +
-'  <category id="catElementory" name="Elementory">'+
+'  <category id="catElementory" name="Sensors">'+
 '    <block type="get_humidity"></block>'+
 '    <block type="get_light_intensity"></block>'+
 '    <block type="get_ultrasonic_distance"></block>'+
 '    <block type="get_temperature"></block>'+
-'    <block type="pump_start"></block>'+
-'    <block type="pump_stop"></block>'+
 '    <block type="save_time"></block>'+
 '    <block type="get_time"></block>'+
 '    <block type="save_memory_time"></block>'+
 '    <block type="read_memory_time"></block>'+
+'  </category>' +
+'  <sep></sep>' +
+'  <category id="catLogic" name="Logic">' +
+'    <block type="controls_if"></block>' +
+'    <block type="logic_compare"></block>' +
+'    <block type="logic_operation"></block>' +
+'    <block type="logic_negate"></block>' +
+'    <block type="logic_boolean"></block>' +
+'    <block type="logic_null"></block>' +
+'    <block type="logic_ternary"></block>' +
+'  </category>' +
+'  <sep></sep>' +
+'  <category id="catDisplay" name="Display">'+
 '    <block type="lcd_print">'+
 '      <value name="Message">'+
 '        <block type="text">'+
@@ -42,16 +53,6 @@ Ardublockly.TOOLBOX_XML =
 '    </block>'+
 '    <block type="lcd_clear"></block>'+
 '  </category>'+
-'  <sep></sep>' +
-'  <category id="catLogic" name="Logic">' +
-'    <block type="controls_if"></block>' +
-'    <block type="logic_compare"></block>' +
-'    <block type="logic_operation"></block>' +
-'    <block type="logic_negate"></block>' +
-'    <block type="logic_boolean"></block>' +
-'    <block type="logic_null"></block>' +
-'    <block type="logic_ternary"></block>' +
-'  </category>' +
 '  <sep></sep>' +
 '  <category id="catLoops" name="Loops">' +
 '    <block type="controls_repeat_ext">' +
@@ -262,6 +263,8 @@ Ardublockly.TOOLBOX_XML =
 '        </block>' +
 '      </value>' +
 '    </block>' +
+'    <block type="pump_start"></block>'+
+'    <block type="pump_stop"></block>'+
 '  </category>' +
 '  <sep></sep>' +
 '  <category id="catComms" name="Comms">' +
