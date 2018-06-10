@@ -12,8 +12,12 @@ Blockly.Blocks['get_humidity'] = {
         .appendField(new Blockly.FieldImage("http://www.elektrojo.com/448-large_default/dht11-temperature-relative-humidity-sensor-module.jpg",64,64))
         .appendField("PORT#")
         .appendField(new Blockly.FieldDropdown(Blockly.Arduino.Boards.selected.inputPort), "PORT");
-    this.setOutput(true, 'Number');
+    this.setOutput(true, Blockly.Types.NUMBER.output);
     this.setTooltip('Get Humidity Value from Sensor');
+  },
+  /** @return {!string} The type of return value for the block, an integer. */
+  getBlockType: function() {
+    return Blockly.Types.NUMBER;
   }
 };
 
@@ -27,8 +31,31 @@ Blockly.Blocks['get_light_intensity'] = {
         .appendField(new Blockly.FieldImage("https://potentiallabs.com/cart/image/cache/catalog/LDR-800x800.jpg",64,64))
         .appendField("PORT#")
         .appendField(new Blockly.FieldDropdown(Blockly.Arduino.Boards.selected.inputPort), "PORT");
-    this.setOutput(true, 'Number');
+    this.setOutput(true,  Blockly.Types.NUMBER.output);
     this.setTooltip('Get Light Intensity from Sensor');
+  },
+  /** @return {!string} The type of return value for the block, an integer. */
+  getBlockType: function() {
+    return Blockly.Types.NUMBER;
+  }
+};
+
+Blockly.Blocks['get_knob'] = {
+
+  init: function() {
+    //var options = [['1', 'A0'], ['2', 'A1'], ['3', 'A2'], ['4', 'A3']];
+    this.setColour(120);
+    this.appendDummyInput()
+        .appendField("Knob")
+        .appendField(new Blockly.FieldImage("https://www.amplifiedparts.com/sites/default/files/uc_products/r-m_0_1.png",64,64))
+        .appendField("PORT#")
+        .appendField(new Blockly.FieldDropdown(Blockly.Arduino.Boards.selected.inputPort), "PORT");
+    this.setOutput(true,  Blockly.Types.NUMBER.output);
+    this.setTooltip('Get value from Knob');
+  },
+  /** @return {!string} The type of return value for the block, an integer. */
+  getBlockType: function() {
+    return Blockly.Types.NUMBER;
   }
 };
 
@@ -42,8 +69,12 @@ Blockly.Blocks['get_temperature'] = {
       //  .appendField(new Blockly.FieldImage("https://elementory.in/wp-content/uploads/2018/03/elt_small.png"))
         .appendField("PORT#")
         .appendField(new Blockly.FieldDropdown(Blockly.Arduino.Boards.selected.inputPort), "PORT");
-    this.setOutput(true, 'Number');
+    this.setOutput(true,  Blockly.Types.NUMBER.output);
     this.setTooltip('Get Temperture in Celsius from Sensor');
+  },
+  /** @return {!string} The type of return value for the block, an integer. */
+  getBlockType: function() {
+    return Blockly.Types.NUMBER;
   }
 };
 
@@ -57,8 +88,12 @@ Blockly.Blocks['get_ultrasonic_distance'] = {
         .appendField(new Blockly.FieldImage("https://www.makerlab-electronics.com/my_uploads/2016/05/ultrasonic-sensor-HCSR04-1.jpg",64,64))
         .appendField("PORT#")
         .appendField(new Blockly.FieldDropdown(Blockly.Arduino.Boards.selected.inputPort), "PORT");
-    this.setOutput(true, 'Number');
+    this.setOutput(true,  Blockly.Types.NUMBER.output);
     this.setTooltip('Get Distance from Ultrasonic Sensor');
+  },
+  /** @return {!string} The type of return value for the block, an integer. */
+  getBlockType: function() {
+    return Blockly.Types.NUMBER;
   }
 };
 

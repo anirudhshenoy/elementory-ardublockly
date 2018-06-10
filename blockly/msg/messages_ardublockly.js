@@ -158,11 +158,11 @@ Blockly.Msg.ARD_PULSE_READ_TIMEOUT = 'measure %1 pulse on pin #%2 (timeout after
 Blockly.Msg.ARD_PULSE_TIP = 'Measures the duration of a pulse on the selected pin.';
 /// IO blocks - pulseIn - Tooltip for pulseIn() block when it uses the optional argument for time-out.
 Blockly.Msg.ARD_PULSETIMEOUT_TIP = 'Measures the duration of a pulse on the selected pin, if it is within the time-out in microseconds.';
-Blockly.Msg.ARD_SETTONE = 'Set tone on PORT #';
+Blockly.Msg.ARD_SETTONE = 'Buzzer on PORT #';
 Blockly.Msg.ARD_TONEFREQ = 'at frequency';
 Blockly.Msg.ARD_TONE_TIP = 'Sets tone on PORT to specified frequency within range 31 - 65535';
 Blockly.Msg.ARD_TONE_WARNING = 'Frequency must be in range 31 - 65535';
-Blockly.Msg.ARD_NOTONE = 'Turn off tone on PORT #';
+Blockly.Msg.ARD_NOTONE = 'Turn off Buzzer on PORT #';
 Blockly.Msg.ARD_NOTONE_TIP = 'Turns the tone off on the selected pin';
 
 /**

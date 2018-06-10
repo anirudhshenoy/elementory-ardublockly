@@ -27,6 +27,26 @@ Blockly.Arduino['base_map'] = function(block) {
       block, 'DMAX', Blockly.Arduino.ORDER_ATOMIC) || '0';
   var valueDmin = Blockly.Arduino.valueToCode(
       block, 'DMIN', Blockly.Arduino.ORDER_ATOMIC) || '0';
-  var code = 'map(' + valueNum + ', 0, 1024, ' + valueDmin + ',' + valueDmax + ')';
+  var code = 'map(' + valueNum + ', 0, 1023, ' + valueDmin + ',' + valueDmax + ')';
+  return [code, Blockly.Arduino.ORDER_NONE];
+};
+
+/**
+ * Code generator for the map block.
+ * Arduino code: loop { map(x, 0, 1024, 0, y) }
+ * @param {!Blockly.Block} block Block to generate the code from.
+ * @return {array} Completed code with order of operation.
+ */
+Blockly.Arduino['convert_angle'] = function(block) {
+  var valueNum = Blockly.Arduino.valueToCode(
+      block, 'IN', Blockly.Arduino.ORDER_NONE) || '0';
+  var code = 'map(' + valueNum + ', 0, 1023, 0, 180)';
+  return [code, Blockly.Arduino.ORDER_NONE];
+};
+
+Blockly.Arduino['convert_level'] = function(block) {
+  var valueNum = Blockly.Arduino.valueToCode(
+      block, 'IN', Blockly.Arduino.ORDER_NONE) || '0';
+  var code = 'map(' + valueNum + ', 0, 1023, 0, 255)';
   return [code, Blockly.Arduino.ORDER_NONE];
 };
