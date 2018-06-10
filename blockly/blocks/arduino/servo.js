@@ -32,7 +32,7 @@ Blockly.Blocks['servo_write'] = {
     this.appendDummyInput()
         .appendField(Blockly.Msg.ARD_SERVO_WRITE)
         .appendField(new Blockly.FieldDropdown(
-            Blockly.Arduino.Boards.selected.digitalPins), 'SERVO_PIN');
+              Blockly.Arduino.Boards.selected.outputPortPWM), 'SERVO_PIN');
     this.setInputsInline(false);
     this.appendValueInput('SERVO_ANGLE')
         .setCheck(Blockly.Types.NUMBER.checkList)
@@ -65,7 +65,7 @@ Blockly.Blocks['servo_read'] = {
     this.appendDummyInput()
         .appendField(Blockly.Msg.ARD_SERVO_READ)
         .appendField(new Blockly.FieldDropdown(
-            Blockly.Arduino.Boards.selected.digitalPins), 'SERVO_PIN');
+              Blockly.Arduino.Boards.selected.outputPortPWM), 'SERVO_PIN');
     this.setOutput(true, Blockly.Types.NUMBER.output);
     this.setTooltip(Blockly.Msg.ARD_SERVO_READ_TIP);
   },

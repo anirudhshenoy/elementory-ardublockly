@@ -19,8 +19,8 @@ Blockly.Arduino['get_humidity'] = function(block) {
   var dropdown_pin = this.getFieldValue('PORT');
 //  Blockly.Arduino.definitions_['define_elementory'] = '#include <elementory.h>\n';
   Blockly.Arduino.addInclude('', '#include <elementory.h>');
-  var code = 'readHumidity('+dropdown_pin+')';
-  code+='delay(2000)';
+  var code = 'readHumidity('+dropdown_pin+');';
+  code+='\ndelay(2000)';
   return [code, Blockly.Arduino.ORDER_ATOMIC];
 };
 
@@ -116,4 +116,23 @@ Blockly.Arduino['get_time'] = function(block) {
 
   var code = 'getTime(\''+time_option+'\')';
   return [code, Blockly.Arduino.ORDER_ATOMIC];
+};
+
+
+Blockly.Arduino['save_memory_time'] = function(block) {
+  var varName = Blockly.Arduino.variableDB_.getName(block.getFieldValue('VAR'), Blockly.Variables.NAME_TYPE);
+  Blockly.Arduino.addInclude('', '#include <elementory.h>');
+  //Blockly.Arduino.definitions_['define_var'] = 'DateTime ' + varName +';\n';
+  Blockly.Arduino.addSetup('','rtc.begin();',true);
+  return 'NVRAMWritelong('+varName+'.unixtime());';
+};
+
+Blockly.Arduino['read_memory_time'] = function(block) {
+  var time_option = this.getFieldValue('option');
+  Blockly.Arduino.addInclude('', '#include <elementory.h>');
+  //Blockly.Arduino.definitions_['define_var'] = 'DateTime ' + varName +';\n';
+  Blockly.Arduino.addSetup('','rtc.begin();',true);
+  var code = 'ReadMemoryTime(\''+time_option+'\')';
+  return [code, Blockly.Arduino.ORDER_ATOMIC];
+
 };

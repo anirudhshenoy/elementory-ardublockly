@@ -25,7 +25,8 @@ Blockly.Arduino['base_map'] = function(block) {
       block, 'NUM', Blockly.Arduino.ORDER_NONE) || '0';
   var valueDmax = Blockly.Arduino.valueToCode(
       block, 'DMAX', Blockly.Arduino.ORDER_ATOMIC) || '0';
-
-  var code = 'map(' + valueNum + ', 0, 1024, 0, ' + valueDmax + ')';
+  var valueDmin = Blockly.Arduino.valueToCode(
+      block, 'DMIN', Blockly.Arduino.ORDER_ATOMIC) || '0';
+  var code = 'map(' + valueNum + ', 0, 1024, ' + valueDmin + ',' + valueDmax + ')';
   return [code, Blockly.Arduino.ORDER_NONE];
 };
