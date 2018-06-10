@@ -64,7 +64,8 @@ Blockly.Arduino['lcd_print'] = function(block) {
 
 Blockly.Arduino['lcd_clear'] = function(block) {
 
-  Blockly.Arduino.definitions_['define_elementory'] = '#include <elementory.h>\n';
+  //Blockly.Arduino.definitions_['define_elementory'] = '#include <elementory.h>\n';
+  Blockly.Arduino.addInclude('', '#include <elementory.h>');
   Blockly.Arduino.addSetup('lcd.init();');
   var code = 'lcd.clear();\n';
   return code;
