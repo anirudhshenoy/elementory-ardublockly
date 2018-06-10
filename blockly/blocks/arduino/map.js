@@ -49,3 +49,43 @@ Blockly.Blocks['base_map'] = {
     return Blockly.Types.NUMBER;
   }
 };
+
+Blockly.Blocks['convert_angle'] = {
+  /**
+   * Block for creating a the map function.
+   * @this Blockly.Block
+   */
+  init: function() {
+    this.setHelpUrl('http://arduino.cc/en/Reference/map');
+    this.setColour(Blockly.Blocks.map.HUE);
+    this.appendValueInput("IN")
+         .setCheck(Blockly.Types.NUMBER.checkList)
+         .appendField("Convert to Angle (0 -180 degs)");
+    this.setOutput(true,Blockly.Types.NUMBER.output);
+    this.setTooltip("Convert an input to Angle");
+  },
+  /** @return {string} The type of return value for the block, an integer. */
+  getBlockType: function() {
+    return Blockly.Types.NUMBER;
+  }
+};
+
+Blockly.Blocks['convert_level'] = {
+  /**
+   * Block for creating a the map function.
+   * @this Blockly.Block
+   */
+  init: function() {
+    this.setHelpUrl('http://arduino.cc/en/Reference/map');
+    this.setColour(Blockly.Blocks.map.HUE);
+    this.appendValueInput("IN")
+         .setCheck(Blockly.Types.NUMBER.checkList)
+         .appendField("Convert to Level (0 -255)");
+    this.setOutput(true,Blockly.Types.NUMBER.output);
+    this.setTooltip("Convert an input to Level");
+  },
+  /** @return {string} The type of return value for the block, an integer. */
+  getBlockType: function() {
+    return Blockly.Types.NUMBER;
+  }
+};

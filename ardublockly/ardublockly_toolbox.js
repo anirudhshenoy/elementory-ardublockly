@@ -15,6 +15,7 @@ Ardublockly.TOOLBOX_XML =
 '  <category id="catElementory" name="Sensors">'+
 '    <block type="get_humidity"></block>'+
 '    <block type="get_light_intensity"></block>'+
+'    <block type="get_knob"></block>'+
 '    <block type="get_ultrasonic_distance"></block>'+
 '    <block type="get_temperature"></block>'+
 '    <block type="save_time"></block>'+
@@ -124,6 +125,8 @@ Ardublockly.TOOLBOX_XML =
 '      </value>' +
 '    </block>' +
 '    <block type="math_random_float"></block>' +
+'    <block type="convert_angle"></block>' +
+'    <block type="convert_level"></block>' +
 '    <block type="base_map">'+
 '        <block type="math_number">' +
 '          <field name="DMIN">0</field>' +
@@ -208,17 +211,17 @@ Ardublockly.TOOLBOX_XML =
 '  </category>' +
 '  <sep></sep>' +
 '  <category id="catTime" name="Time">' +
+'    <block type="time_delay_secs">' +
+'      <value name="DELAY_TIME_SECS">' +
+'        <block type="math_number">' +
+'          <field name="NUM">1</field>' +
+'        </block>' +
+'      </value>' +
+'    </block>' +
 '    <block type="time_delay">' +
 '      <value name="DELAY_TIME_MILI">' +
 '        <block type="math_number">' +
 '          <field name="NUM">1000</field>' +
-'        </block>' +
-'      </value>' +
-'    </block>' +
-'    <block type="time_delaymicros">' +
-'      <value name="DELAY_TIME_MICRO">' +
-'        <block type="math_number">' +
-'          <field name="NUM">100</field>' +
 '        </block>' +
 '      </value>' +
 '    </block>' +

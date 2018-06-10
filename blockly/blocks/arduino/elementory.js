@@ -40,6 +40,25 @@ Blockly.Blocks['get_light_intensity'] = {
   }
 };
 
+Blockly.Blocks['get_knob'] = {
+
+  init: function() {
+    //var options = [['1', 'A0'], ['2', 'A1'], ['3', 'A2'], ['4', 'A3']];
+    this.setColour(120);
+    this.appendDummyInput()
+        .appendField("Knob")
+        .appendField(new Blockly.FieldImage("https://www.amplifiedparts.com/sites/default/files/uc_products/r-m_0_1.png",64,64))
+        .appendField("PORT#")
+        .appendField(new Blockly.FieldDropdown(Blockly.Arduino.Boards.selected.inputPort), "PORT");
+    this.setOutput(true,  Blockly.Types.NUMBER.output);
+    this.setTooltip('Get value from Knob');
+  },
+  /** @return {!string} The type of return value for the block, an integer. */
+  getBlockType: function() {
+    return Blockly.Types.NUMBER;
+  }
+};
+
 Blockly.Blocks['get_temperature'] = {
 
   init: function() {
