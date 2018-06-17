@@ -62,7 +62,7 @@ Blockly.Arduino['lcd_print'] = function(block) {
   var line = Blockly.Arduino.valueToCode(this, 'Line', Blockly.Arduino.ORDER_ATOMIC);
   var pos = Blockly.Arduino.valueToCode(this, 'Position', Blockly.Arduino.ORDER_ATOMIC);
 
-  Blockly.Arduino.addSetup('','lcd.begin(16,2);\n  lcd.backlight();',true);
+  Blockly.Arduino.addSetup('','lcd_begin();\n  lcd.backlight();',true);
   //Blockly.Arduino.definitions_['define_elementory'] = '#include <elementory.h>\n';
   Blockly.Arduino.addInclude('', '#include <elementory.h>');
   var code = 'lcd.setCursor(' + pos + ',' + line +');\n';
