@@ -100,6 +100,8 @@ Blockly.Blocks['get_ultrasonic_distance'] = {
 Blockly.Blocks['lcd_print'] = {
 
   init: function() {
+  	var line_option=[['1', '0'], ['2', '1']];
+  	var position_option=[['1', '0'], ['2', '1'], ['3', '2'], ['4', '3'],['5', '4'],['6', '5'], ['7', '6'], ['8', '7'], ['9', '8'],['10', '9'],['11', '10'], ['12', '11'], ['13', '12'], ['14', '13'],['15', '14'],['16', '15']];
     this.setColour(120);
     this.appendDummyInput()
         .appendField("LCD Print")
@@ -108,14 +110,21 @@ Blockly.Blocks['lcd_print'] = {
           //.setCheck('String')
           .setAlign(Blockly.ALIGN_RIGHT)
           .appendField("Message");
-    this.appendValueInput("Line", 'Number')
-        .setCheck('Number')
+ //   this.appendValueInput("Line", 'Number')
+ //       .setCheck('Number')
+ 	this.appendDummyInput()
+ 		.appendField("Line")
         .setAlign(Blockly.ALIGN_RIGHT)
-        .appendField("Line");
-    this.appendValueInput("Position", 'Number')
-        .setCheck('Number')
+        .appendField(new Blockly.FieldDropdown(line_option), "Line");
+        
+//    this.appendValueInput("Position", 'Number')
+//        .setCheck('Number')
+//        .setAlign(Blockly.ALIGN_RIGHT)
+//        .appendField("Position");
+	this.appendDummyInput()
+ 		.appendField("Position")
         .setAlign(Blockly.ALIGN_RIGHT)
-        .appendField("Position");
+        .appendField(new Blockly.FieldDropdown(position_option), "Position");
 
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);

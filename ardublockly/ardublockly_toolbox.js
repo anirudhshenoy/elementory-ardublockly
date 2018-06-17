@@ -18,10 +18,10 @@ Ardublockly.TOOLBOX_XML =
 '    <block type="get_knob"></block>'+
 '    <block type="get_ultrasonic_distance"></block>'+
 '    <block type="get_temperature"></block>'+
-'    <block type="save_time"></block>'+
+/*'    <block type="save_time"></block>'+
 '    <block type="get_time"></block>'+
 '    <block type="save_memory_time"></block>'+
-'    <block type="read_memory_time"></block>'+
+'    <block type="read_memory_time"></block>'+*/
 '  </category>' +
 '  <sep></sep>' +
 '  <category id="catLogic" name="Logic">' +
@@ -30,8 +30,8 @@ Ardublockly.TOOLBOX_XML =
 '    <block type="logic_operation"></block>' +
 '    <block type="logic_negate"></block>' +
 '    <block type="logic_boolean"></block>' +
-'    <block type="logic_null"></block>' +
-'    <block type="logic_ternary"></block>' +
+/*'    <block type="logic_null"></block>' +
+'    <block type="logic_ternary"></block>' +*/
 '  </category>' +
 '  <sep></sep>' +
 '  <category id="catDisplay" name="Display">'+
@@ -87,10 +87,10 @@ Ardublockly.TOOLBOX_XML =
 '  <category id="catMath" name="Math">' +
 '    <block type="math_number"></block>' +
 '    <block type="math_arithmetic"></block>' +
-'    <block type="math_single"></block>' +
-'    <block type="math_trig"></block>' +
-'    <block type="math_constant"></block>' +
-'    <block type="math_number_property"></block>' +
+//'    <block type="math_single"></block>' +
+//'    <block type="math_trig"></block>' +
+//'    <block type="math_constant"></block>' +
+//'    <block type="math_number_property"></block>' +
 '    <block type="math_change">' +
 '      <value name="DELTA">' +
 '        <block type="math_number">' +
@@ -98,9 +98,9 @@ Ardublockly.TOOLBOX_XML =
 '        </block>' +
 '      </value>' +
 '    </block>' +
-'    <block type="math_round"></block>' +
-'    <block type="math_modulo"></block>' +
-'    <block type="math_constrain">' +
+//'    <block type="math_round"></block>' +
+//'    <block type="math_modulo"></block>' +
+/*'    <block type="math_constrain">' +
 '      <value name="LOW">' +
 '        <block type="math_number">' +
 '          <field name="NUM">1</field>' +
@@ -124,7 +124,7 @@ Ardublockly.TOOLBOX_XML =
 '        </block>' +
 '      </value>' +
 '    </block>' +
-'    <block type="math_random_float"></block>' +
+'    <block type="math_random_float"></block>' +*/
 '    <block type="convert_angle"></block>' +
 '    <block type="convert_level"></block>' +
 '    <block type="base_map">'+
@@ -139,14 +139,14 @@ Ardublockly.TOOLBOX_XML =
 '  <sep></sep>' +
 '  <category id="catText" name="Text">' +
 '    <block type="text"></block>' +
-'    <block type="text_join"></block>' +
+//'    <block type="text_join"></block>' +
 '    <block type="text_append">' +
 '      <value name="TEXT">' +
 '        <block type="text"></block>' +
 '      </value>' +
 '    </block>' +
 '    <block type="text_length"></block>' +
-'    <block type="text_isEmpty"></block>' +
+//'    <block type="text_isEmpty"></block>' +
 //'    <!--block type="text_trim"></block Need to update block -->' +
 //'    <!--block type="text_print"></block Part of the serial comms -->' +
 '  </category>' +
@@ -162,8 +162,8 @@ Ardublockly.TOOLBOX_XML =
 '    <block type="variables_set_type"></block>' +
 '  </category>' +
 '  <sep></sep>' +
-'  <category id="catFunctions" name="Functions" custom="PROCEDURE"></category>' +
-'  <sep></sep>' +
+//'  <category id="catFunctions" name="Functions" custom="PROCEDURE"></category>' +
+//'  <sep></sep>' +
 '  <category id="catInputOutput" name="Input/Output">' +
 /*'    <block type="io_digitalwrite">' +
 '      <value name="STATE">' +
@@ -225,8 +225,8 @@ Ardublockly.TOOLBOX_XML =
 '        </block>' +
 '      </value>' +
 '    </block>' +
-'    <block type="time_millis"></block>' +
-'    <block type="time_micros"></block>' +
+//'    <block type="time_millis"></block>' +
+//'    <block type="time_micros"></block>' +
 '    <block type="infinite_loop"></block>' +
 '  </category>' +
 '  <sep></sep>' +
@@ -251,7 +251,7 @@ Ardublockly.TOOLBOX_XML =
 '      </value>' +
 '    </block>' +
 '    <block type="servo_read"></block>' +
-'    <block type="stepper_config">' +
+/*'    <block type="stepper_config">' +
 '      <field name="STEPPER_NUMBER_OF_PINS">2</field>' +
 '      <field name="STEPPER_PIN1">1</field>' +
 '      <field name="STEPPER_PIN2">2</field>' +
@@ -272,12 +272,12 @@ Ardublockly.TOOLBOX_XML =
 '          <field name="NUM">10</field>' +
 '        </block>' +
 '      </value>' +
-'    </block>' +
+'    </block>' +*/
 '    <block type="pump_start"></block>'+
 '    <block type="pump_stop"></block>'+
 '  </category>' +
 '  <sep></sep>' +
-'  <category id="catComms" name="Comms">' +
+/*'  <category id="catComms" name="Comms">' +
 '    <block type="serial_setup"></block>' +
 '    <block type="serial_print"></block>' +
 '    <block type="text_prompt_ext">' +
@@ -288,5 +288,5 @@ Ardublockly.TOOLBOX_XML =
 '    <block type="spi_setup"></block>' +
 '    <block type="spi_transfer"></block>' +
 '    <block type="spi_transfer_return"></block>' +
-'  </category>' +
+'  </category>' +*/
 '</xml>';
