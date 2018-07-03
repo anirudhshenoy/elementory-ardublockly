@@ -36,10 +36,10 @@ Ardublockly.injectBlockly = function(blocklyEl, toolboxXml, blocklyPath) {
   // The Toolbox menu language is edited directly from the XML nodes.
   Ardublockly.updateToolboxLanguage();
   Ardublockly.workspace = Blockly.inject(blocklyEl, {
-      collapse: true,
-      comments: true,
+      collapse: false,
+      comments: false,
       css: true,
-      disable: true,
+      disable: false,
       grid: false,
       maxBlocks: Infinity,
       media: blocklyPath + '/media/',
@@ -66,12 +66,17 @@ Ardublockly.bindBlocklyEventListeners = function() {
   Ardublockly.workspace.addChangeListener(function(event) {
     if (event.type != Blockly.Events.UI) {
       Ardublockly.renderContent();
+      
     }
   });
+
+  
   // Ensure the Blockly workspace resizes accordingly
   window.addEventListener('resize',
       function() { Blockly.asyncSvgResize(Ardublockly.workspace); }, false);
 };
+
+
 
 /** @return {!string} Generated Arduino code from the Blockly workspace. */
 Ardublockly.generateArduino = function() {
