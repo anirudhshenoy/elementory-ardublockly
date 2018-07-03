@@ -15,6 +15,10 @@ goog.provide('Blockly.Arduino.elementory');
 goog.require('Blockly.Arduino');
 
 
+Blockly.Arduino['start'] = function(block) {
+  return '';
+};
+
 Blockly.Arduino['get_humidity'] = function(block) {
   var dropdown_pin = this.getFieldValue('PORT');
 //  Blockly.Arduino.definitions_['define_elementory'] = '#include <elementory.h>\n';

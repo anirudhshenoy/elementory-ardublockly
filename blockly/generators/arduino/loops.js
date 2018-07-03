@@ -84,6 +84,22 @@ Blockly.Arduino['controls_whileUntil'] = function(block) {
     argument0 = '!' + argument0;
   }
   return 'while (' + argument0 + ') {\n' + branch + '}\n';
+  //Blockly.Arduino.addLoop('','while (' + argument0 + ') {\n' + branch + '}\n');
+
+};
+
+/**
+ * Generator for the repeat forever block. This block places code in the loop() 
+ * Arduino code: void loop { }
+ * @param {!Blockly.Block} block Block to generate the code from.
+ * @return {string} Completed code.
+ */
+Blockly.Arduino['controls_repeatForever'] = function(block) {
+ 
+  var branch = Blockly.Arduino.statementToCode(block, 'DO');
+  Blockly.Arduino.addLoop('',branch + '\n');
+  return '';
+
 };
 
 /**

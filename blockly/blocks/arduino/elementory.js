@@ -3,6 +3,20 @@ goog.provide('Blockly.Blocks.elementory');
 goog.require('Blockly.Blocks');
 goog.require('Blockly.Types');
 
+
+Blockly.Blocks['start'] = {
+  init: function() {
+    this.appendDummyInput()
+        .setAlign(Blockly.ALIGN_CENTRE)
+        .appendField("START");
+    this.setNextStatement(true, null);
+    this.setColour(121);
+ this.setTooltip("");
+ this.setHelpUrl("");
+  }
+};
+
+
 Blockly.Blocks['get_humidity'] = {
   init: function() {
     //var options = [['1', 'A0'], ['2', 'A1'], ['3', 'A2'], ['4', 'A3']];

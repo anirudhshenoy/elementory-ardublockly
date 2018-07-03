@@ -64,6 +64,8 @@ Ardublockly.TOOLBOX_XML =
 '      </value>' +
 '    </block>' +
 '    <block type="controls_whileUntil"></block>' +
+'    <block type="start"></block>' +
+'    <block type="controls_repeatForever"></block>' +
 '    <block type="controls_for">' +
 '      <value name="FROM">' +
 '        <block type="math_number">' +

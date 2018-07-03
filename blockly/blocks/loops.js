@@ -122,6 +122,23 @@ Blockly.Blocks['controls_whileUntil'] = {
   }
 };
 
+Blockly.Blocks['controls_repeatForever'] = {
+  /**
+   * Block for 'do while/until' loop.
+   * @this Blockly.Block
+   */
+  init: function() {
+    this.setHelpUrl(Blockly.Msg.CONTROLS_WHILEUNTIL_HELPURL);
+    this.setColour(Blockly.Blocks.loops.HUE);
+    this.appendDummyInput()
+        .appendField("repeat forever");
+    this.appendStatementInput('DO');
+    this.setPreviousStatement(true);
+    this.setNextStatement(true);
+
+  }
+};
+
 Blockly.Blocks['controls_for'] = {
   /**
    * Block for 'for' loop.
