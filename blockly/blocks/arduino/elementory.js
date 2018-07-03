@@ -16,6 +16,19 @@ Blockly.Blocks['start'] = {
   }
 };
 
+Blockly.Blocks['end'] = {
+  init: function() {
+    this.appendDummyInput()
+        .setAlign(Blockly.ALIGN_CENTRE)
+        .appendField("END");
+    this.setPreviousStatement(true, null);
+    this.setColour(0);
+ this.setTooltip("");
+ this.setHelpUrl("");
+  }
+};
+
+
 
 Blockly.Blocks['get_humidity'] = {
   init: function() {
