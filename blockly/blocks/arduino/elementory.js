@@ -55,7 +55,7 @@ Blockly.Blocks['get_light_intensity'] = {
     this.setColour(120);
     this.appendDummyInput()
         .appendField("Light Sensor")
-        .appendField(new Blockly.FieldImage("https://potentiallabs.com/cart/image/cache/catalog/LDR-800x800.jpg",64,64))
+        .appendField(new Blockly.FieldImage("../blockly/media/block_images/light_sensor.png",64,64))
         .appendField("PORT#")
         .appendField(new Blockly.FieldDropdown(Blockly.Arduino.Boards.selected.inputPort), "PORT");
     this.setOutput(true,  Blockly.Types.NUMBER.output);
