@@ -114,7 +114,7 @@ Blockly.Arduino.Boards.profiles.uno = {
   interrupt: [['interrupt0', '2'], ['interrupt1', '3']],
   inputPort: [['IN-1', 'A0'], ['IN-2', 'A1'], ['IN-3', 'A2'], ['IN-4', 'A3'],['IN-5', 'A6']],
   outputPortPWM: [['OUT-1', '10'], ['OUT-2', '9'], ['OUT-3', '6'], ['OUT-4', '5'],['OUT-5', '3']],
-  outpurPortNormal: [['OUT-1', '12'], ['OUT-2', '8'], ['OUT-3', '7'], ['OUT-4', '4'],['OUT-5', '2']]
+  outputPortNormal: [['OUT-1', '12'], ['OUT-2', '8'], ['OUT-3', '7'], ['OUT-4', '4'],['OUT-5', '2']]
 };
 
 /** Arduino Nano board profile (ATmega328p). */
@@ -139,7 +139,7 @@ Blockly.Arduino.Boards.profiles.nano_328 = {
   interrupt: Blockly.Arduino.Boards.profiles.uno.interrupt,
   inputPort: [['IN-1', 'A0'], ['IN-2', 'A1'], ['IN-3', 'A2'], ['IN-4', 'A3'],['IN-5', 'A6']],
   outputPortPWM: [['OUT-1', '10'], ['OUT-2', '9'], ['OUT-3', '6'], ['OUT-4', '5'],['OUT-5', '3']],
-  outpurPortNormal: [['OUT-1', '12'], ['OUT-2', '8'], ['OUT-3', '7'], ['OUT-4', '4'],['OUT-5', '2']]
+  outputPortNormal: [['OUT-1', '12'], ['OUT-2', '8'], ['OUT-3', '7'], ['OUT-4', '4'],['OUT-5', '2']]
 };
 Blockly.Arduino.Boards.profiles.nano_168 =
     Blockly.Arduino.Boards.duplicateBoardProfile(

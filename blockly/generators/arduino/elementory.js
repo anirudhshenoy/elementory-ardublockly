@@ -32,6 +32,24 @@ Blockly.Arduino['get_humidity'] = function(block) {
   return [code, Blockly.Arduino.ORDER_ATOMIC];
 };
 
+Blockly.Arduino['rainbow_led'] = function(block) {
+  var dropdown_pin = this.getFieldValue('PORT');
+  var selected_color=this.getFieldValue('color');
+  var selected_brightness = Blockly.Arduino.valueToCode(
+      block, 'brightness', Blockly.Arduino.ORDER_ATOMIC) || '0';
+//  Blockly.Arduino.definitions_['define_elementory'] = '#include <elementory.h>\n';
+  Blockly.Arduino.addInclude('', '#include <elementory.h>');
+  Blockly.Arduino.addSetup('','Adafruit_NeoPixel pixels = Adafruit_NeoPixel(1, ' +dropdown_pin+ ', NEO_GRB + NEO_KHZ800); \n pixels.begin();',true);
+  var code = 'char *hexstring = "'+selected_color+ '";\n';
+  code+= 'long number = strtol( &hexstring[1], NULL, 16);\n'
+  code+='long r = number >> 16;\n';
+  code+='long g = number >> 8 & 0xFF;\n';
+  code+='long b = number & 0xFF;\n';
+  code+='pixels.setPixelColor(0, pixels.Color(r,g,b)); \n';
+  code+='pixels.show();\n';
+  return code;
+};
+
 Blockly.Arduino['get_light_intensity'] = function(block) {
   var dropdown_pin = this.getFieldValue('PORT');
   //Blockly.Arduino.definitions_['define_elementory'] = '#include <elementory.h>\n';

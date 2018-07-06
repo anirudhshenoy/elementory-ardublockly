@@ -32,6 +32,14 @@ Ardublockly.TOOLBOX_XML =
 '      </value>' +
 '    </block>' +
 */
+'    <block type="rainbow_led">' +
+'       <value name="brightness">' +
+'        <block type="math_number">' +
+'          <field name="NUM">1</field>' +
+'        </block>' +
+'      </value>' +
+'    </block>' +
+
 '    <block type="io_digitalwrite">' +
 '      <value name="STATE">' +
 '        <block type="io_highlow"></block>' +

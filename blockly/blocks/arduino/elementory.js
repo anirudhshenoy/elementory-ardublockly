@@ -48,6 +48,26 @@ Blockly.Blocks['get_humidity'] = {
   }
 };
 
+Blockly.Blocks['rainbow_led'] = {
+  init: function() {
+    this.appendDummyInput()
+        .appendField("Rainbow LED")
+        .appendField("PORT#")
+        .appendField(new Blockly.FieldDropdown(Blockly.Arduino.Boards.selected.outputPortNormal), "PORT")
+        .appendField("Color")
+        .appendField(new Blockly.FieldColour("#ffff00"), "color");
+    this.appendValueInput("brightness")
+        
+        .appendField("brightness");
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setColour(359);
+ this.setInputsInline(true);
+ this.setTooltip("");
+ this.setHelpUrl("");
+  }
+};
+
 Blockly.Blocks['get_light_intensity'] = {
 
   init: function() {
