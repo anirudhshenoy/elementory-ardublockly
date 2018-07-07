@@ -15,6 +15,14 @@ goog.provide('Blockly.Arduino.elementory');
 goog.require('Blockly.Arduino');
 
 
+Blockly.Arduino['start'] = function(block) {
+  return '';
+};
+
+Blockly.Arduino['end'] = function(block) {
+  return '';
+};
+
 Blockly.Arduino['get_humidity'] = function(block) {
   var dropdown_pin = this.getFieldValue('PORT');
 //  Blockly.Arduino.definitions_['define_elementory'] = '#include <elementory.h>\n';
@@ -22,6 +30,24 @@ Blockly.Arduino['get_humidity'] = function(block) {
   var code = 'readHumidity('+dropdown_pin+');';
   code+='\ndelay(2000)';
   return [code, Blockly.Arduino.ORDER_ATOMIC];
+};
+
+Blockly.Arduino['rainbow_led'] = function(block) {
+  var dropdown_pin = this.getFieldValue('PORT');
+  var selected_color=this.getFieldValue('color');
+  var selected_brightness = Blockly.Arduino.valueToCode(
+      block, 'brightness', Blockly.Arduino.ORDER_ATOMIC) || '0';
+//  Blockly.Arduino.definitions_['define_elementory'] = '#include <elementory.h>\n';
+  Blockly.Arduino.addInclude('', '#include <elementory.h>');
+  Blockly.Arduino.addSetup('','Adafruit_NeoPixel pixels = Adafruit_NeoPixel(1, ' +dropdown_pin+ ', NEO_GRB + NEO_KHZ800); \n pixels.begin();',true);
+  var code = 'char *hexstring = "'+selected_color+ '";\n';
+  code+= 'long number = strtol( &hexstring[1], NULL, 16);\n'
+  code+='long r = number >> 16;\n';
+  code+='long g = number >> 8 & 0xFF;\n';
+  code+='long b = number & 0xFF;\n';
+  code+='pixels.setPixelColor(0, pixels.Color(r,g,b)); \n';
+  code+='pixels.show();\n';
+  return code;
 };
 
 Blockly.Arduino['get_light_intensity'] = function(block) {
@@ -45,6 +71,22 @@ Blockly.Arduino['get_temperature'] = function(block) {
   //Blockly.Arduino.definitions_['define_elementory'] = '#include <elementory.h>\n';
   Blockly.Arduino.addInclude('', '#include <elementory.h>');
   var code = 'readTemperature('+dropdown_pin+')';
+  return [code, Blockly.Arduino.ORDER_ATOMIC];
+};
+
+Blockly.Arduino['get_touch'] = function(block) {
+  var dropdown_pin = this.getFieldValue('PORT');
+  //Blockly.Arduino.definitions_['define_elementory'] = '#include <elementory.h>\n';
+  Blockly.Arduino.addInclude('', '#include <elementory.h>');
+  var code = 'touch_sensor('+dropdown_pin+')';
+  return [code, Blockly.Arduino.ORDER_ATOMIC];
+};
+
+Blockly.Arduino['get_tilt'] = function(block) {
+  var dropdown_pin = this.getFieldValue('PORT');
+  //Blockly.Arduino.definitions_['define_elementory'] = '#include <elementory.h>\n';
+  Blockly.Arduino.addInclude('', '#include <elementory.h>');
+  var code = 'tilt_sensor('+dropdown_pin+')';
   return [code, Blockly.Arduino.ORDER_ATOMIC];
 };
 
@@ -146,3 +188,19 @@ Blockly.Arduino['read_memory_time'] = function(block) {
   return [code, Blockly.Arduino.ORDER_ATOMIC];
 
 };
+
+Blockly.Arduino['laser'] = function(block) {
+  var pin = block.getFieldValue('PIN');
+  var stateOutput = Blockly.Arduino.valueToCode(
+      block, 'STATE', Blockly.Arduino.ORDER_ATOMIC) || 'LOW';
+
+  Blockly.Arduino.reservePin(
+      block, pin, Blockly.Arduino.PinTypes.OUTPUT, 'Digital Write');
+
+  var pinSetupCode = 'pinMode(' + pin + ', OUTPUT);';
+  Blockly.Arduino.addSetup('io_' + pin, pinSetupCode, false);
+
+  var code = 'digitalWrite(' + pin + ', ' + stateOutput + ');\n';
+  return code;
+};
+

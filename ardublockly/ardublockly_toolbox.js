@@ -12,26 +12,93 @@ var Ardublockly = Ardublockly || {};
 Ardublockly.TOOLBOX_XML =
 '<xml>' +
 '  <sep></sep>' +
-'  <category id="catElementory" name="Sensors">'+
+'  <category id="catElementory" name="Input" >'+
 '    <block type="get_humidity"></block>'+
 '    <block type="get_light_intensity"></block>'+
 '    <block type="get_knob"></block>'+
 '    <block type="get_ultrasonic_distance"></block>'+
+'    <block type="get_touch"></block>'+
+'    <block type="get_tilt"></block>'+
+
 '    <block type="get_temperature"></block>'+
+'    <block type="io_analogread"></block>' +
 /*'    <block type="save_time"></block>'+
 '    <block type="get_time"></block>'+
 '    <block type="save_memory_time"></block>'+
 '    <block type="read_memory_time"></block>'+*/
 '  </category>' +
 '  <sep></sep>' +
-'  <category id="catLogic" name="Logic">' +
-'    <block type="controls_if"></block>' +
-'    <block type="logic_compare"></block>' +
-'    <block type="logic_operation"></block>' +
-'    <block type="logic_negate"></block>' +
-'    <block type="logic_boolean"></block>' +
-/*'    <block type="logic_null"></block>' +
-'    <block type="logic_ternary"></block>' +*/
+'  <category name="Output">' +
+/*'    <block type="io_digitalwrite">' +
+'      <value name="STATE">' +
+'        <block type="io_highlow"></block>' +
+'      </value>' +
+'    </block>' +
+*/
+'    <block type="rainbow_led">' +
+'       <value name="brightness">' +
+'        <block type="math_number">' +
+'          <field name="NUM">1</field>' +
+'        </block>' +
+'      </value>' +
+'    </block>' +
+
+'    <block type="io_digitalwrite">' +
+'      <value name="STATE">' +
+'        <block type="io_highlow"></block>' +
+'      </value>' +
+'    </block>' +
+'    <block type="laser">' +
+'      <value name="STATE">' +
+'        <block type="io_highlow"></block>' +
+'      </value>' +
+'    </block>' +
+/*'    <block type="io_digitalread"></block>' +
+'    <block type="io_builtin_led">' +
+'      <value name="STATE">' +
+'        <block type="io_highlow"></block>' +
+'      </value>' +
+'    </block>' +
+*/
+'    <block type="io_analogwrite">'+
+'       <value name="NUM">' +
+'        <block type="math_number">' +
+'          <field name="NUM">1</field>' +
+'        </block>' +
+'      </value>' +
+'    </block>' +
+'    <block type="io_tone">' +
+'      <field name="TONEPIN">0</field>' +
+'      <value name="FREQUENCY">' +
+'        <shadow type="math_number">' +
+'          <field name="NUM">220</field>' +
+'        </shadow>' +
+'      </value>' +
+'    </block>' +
+'    <block type="servo_write">' +
+'      <value name="SERVO_ANGLE">' +
+'        <block type="math_number">' +
+'          <field name="NUM">90</field>' +
+'        </block>' +
+'      </value>' +
+'    </block>' +
+/*'    <block type="io_highlow"></block>' +
+'    <block type="io_pulsein">' +
+'      <value name="PULSETYPE">' +
+'        <shadow type="io_highlow"></shadow>' +
+'      </value>' +
+'    </block>' +
+'    <block type="io_pulsetimeout">' +
+'      <value name="PULSETYPE">' +
+'        <shadow type="io_highlow"></shadow>' +
+'      </value>' +
+'      <value name="TIMEOUT">' +
+'        <shadow type="math_number">' +
+'          <field name="NUM">100</field>' +
+'        </shadow>' +
+'      </value>'+
+'    </block>' +
+*/
 '  </category>' +
 '  <sep></sep>' +
 '  <category id="catDisplay" name="Display">'+
@@ -55,6 +122,25 @@ Ardublockly.TOOLBOX_XML =
 '    <block type="lcd_clear"></block>'+
 '  </category>'+
 '  <sep></sep>' +
+'  <sep></sep>' +
+'  <sep></sep>' +
+'  <sep></sep>' +
+'  <sep></sep>' +
+'  <sep></sep>' +
+'  <sep></sep>' +
+'  <sep></sep>' +
+'  <sep></sep>' +
+'  <category id="catLogic" name="Logic">' +
+'    <block type="controls_if"></block>' +
+'    <block type="logic_compare"></block>' +
+'    <block type="logic_operation"></block>' +
+'    <block type="logic_negate"></block>' +
+'    <block type="logic_boolean"></block>' +
+/*'    <block type="logic_null"></block>' +
+'    <block type="logic_ternary"></block>' +*/
+'  </category>' +
+'  <sep></sep>' +
+
 '  <category id="catLoops" name="Loops">' +
 '    <block type="controls_repeat_ext">' +
 '      <value name="TIMES">' +
@@ -64,6 +150,9 @@ Ardublockly.TOOLBOX_XML =
 '      </value>' +
 '    </block>' +
 '    <block type="controls_whileUntil"></block>' +
+'    <block type="start"></block>' +
+'    <block type="end"></block>' +
+'    <block type="controls_repeatForever"></block>' +
 '    <block type="controls_for">' +
 '      <value name="FROM">' +
 '        <block type="math_number">' +
@@ -164,51 +253,7 @@ Ardublockly.TOOLBOX_XML =
 '  <sep></sep>' +
 //'  <category id="catFunctions" name="Functions" custom="PROCEDURE"></category>' +
 //'  <sep></sep>' +
-'  <category id="catInputOutput" name="Input/Output">' +
-/*'    <block type="io_digitalwrite">' +
-'      <value name="STATE">' +
-'        <block type="io_highlow"></block>' +
-'      </value>' +
-'    </block>' +
-*/
-'    <block type="io_digitalwrite">' +
-'      <value name="STATE">' +
-'        <block type="io_highlow"></block>' +
-'      </value>' +
-'    </block>' +
-/*'    <block type="io_digitalread"></block>' +
-'    <block type="io_builtin_led">' +
-'      <value name="STATE">' +
-'        <block type="io_highlow"></block>' +
-'      </value>' +
-'    </block>' +
-*/
-'    <block type="io_analogwrite">'+
-'       <value name="NUM">' +
-'        <block type="math_number">' +
-'          <field name="NUM">1</field>' +
-'        </block>' +
-'      </value>' +
-'    </block>' +
-'    <block type="io_analogread"></block>' +
-/*'    <block type="io_highlow"></block>' +
-'    <block type="io_pulsein">' +
-'      <value name="PULSETYPE">' +
-'        <shadow type="io_highlow"></shadow>' +
-'      </value>' +
-'    </block>' +
-'    <block type="io_pulsetimeout">' +
-'      <value name="PULSETYPE">' +
-'        <shadow type="io_highlow"></shadow>' +
-'      </value>' +
-'      <value name="TIMEOUT">' +
-'        <shadow type="math_number">' +
-'          <field name="NUM">100</field>' +
-'        </shadow>' +
-'      </value>'+
-'    </block>' +
-*/
-'  </category>' +
+
 '  <sep></sep>' +
 '  <category id="catTime" name="Time">' +
 '    <block type="time_delay_secs">' +
@@ -230,26 +275,14 @@ Ardublockly.TOOLBOX_XML =
 '    <block type="infinite_loop"></block>' +
 '  </category>' +
 '  <sep></sep>' +
+/*
 '  <category id="catAudio" name="Audio">' +
-'    <block type="io_tone">' +
-'      <field name="TONEPIN">0</field>' +
-'      <value name="FREQUENCY">' +
-'        <shadow type="math_number">' +
-'          <field name="NUM">220</field>' +
-'        </shadow>' +
-'      </value>' +
-'    </block>' +
+
 '    <block type="io_notone"></block>' +
 '  </category>' +
 '  <sep></sep>' +
 '  <category id="catMotors" name="Motors">' +
-'    <block type="servo_write">' +
-'      <value name="SERVO_ANGLE">' +
-'        <block type="math_number">' +
-'          <field name="NUM">90</field>' +
-'        </block>' +
-'      </value>' +
-'    </block>' +
+
 '    <block type="servo_read"></block>' +
 /*'    <block type="stepper_config">' +
 '      <field name="STEPPER_NUMBER_OF_PINS">2</field>' +
@@ -272,12 +305,13 @@ Ardublockly.TOOLBOX_XML =
 '          <field name="NUM">10</field>' +
 '        </block>' +
 '      </value>' +
-'    </block>' +*/
+'    </block>' +
 '    <block type="pump_start"></block>'+
 '    <block type="pump_stop"></block>'+
 '  </category>' +
 '  <sep></sep>' +
-/*'  <category id="catComms" name="Comms">' +
+
+'  <category id="catComms" name="Comms">' +
 '    <block type="serial_setup"></block>' +
 '    <block type="serial_print"></block>' +
 '    <block type="text_prompt_ext">' +

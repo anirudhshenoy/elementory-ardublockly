@@ -3,6 +3,33 @@ goog.provide('Blockly.Blocks.elementory');
 goog.require('Blockly.Blocks');
 goog.require('Blockly.Types');
 
+
+Blockly.Blocks['start'] = {
+  init: function() {
+    this.appendDummyInput()
+        .setAlign(Blockly.ALIGN_CENTRE)
+        .appendField("START");
+    this.setNextStatement(true, null);
+    this.setColour(121);
+ this.setTooltip("");
+ this.setHelpUrl("");
+  }
+};
+
+Blockly.Blocks['end'] = {
+  init: function() {
+    this.appendDummyInput()
+        .setAlign(Blockly.ALIGN_CENTRE)
+        .appendField("END");
+    this.setPreviousStatement(true, null);
+    this.setColour(0);
+ this.setTooltip("");
+ this.setHelpUrl("");
+  }
+};
+
+
+
 Blockly.Blocks['get_humidity'] = {
   init: function() {
     //var options = [['1', 'A0'], ['2', 'A1'], ['3', 'A2'], ['4', 'A3']];
@@ -21,6 +48,26 @@ Blockly.Blocks['get_humidity'] = {
   }
 };
 
+Blockly.Blocks['rainbow_led'] = {
+  init: function() {
+    this.appendDummyInput()
+        .appendField("Rainbow LED")
+        .appendField("PORT#")
+        .appendField(new Blockly.FieldDropdown(Blockly.Arduino.Boards.selected.outputPortNormal), "PORT")
+        .appendField("Color")
+        .appendField(new Blockly.FieldColour("#ffff00"), "color");
+    this.appendValueInput("brightness")
+        
+        .appendField("brightness");
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setColour(359);
+ this.setInputsInline(true);
+ this.setTooltip("");
+ this.setHelpUrl("");
+  }
+};
+
 Blockly.Blocks['get_light_intensity'] = {
 
   init: function() {
@@ -28,7 +75,7 @@ Blockly.Blocks['get_light_intensity'] = {
     this.setColour(120);
     this.appendDummyInput()
         .appendField("Light Sensor")
-        .appendField(new Blockly.FieldImage("https://potentiallabs.com/cart/image/cache/catalog/LDR-800x800.jpg",64,64))
+        .appendField(new Blockly.FieldImage("../blockly/media/block_images/light_sensor.png",64,64))
         .appendField("PORT#")
         .appendField(new Blockly.FieldDropdown(Blockly.Arduino.Boards.selected.inputPort), "PORT");
     this.setOutput(true,  Blockly.Types.NUMBER.output);
@@ -75,6 +122,45 @@ Blockly.Blocks['get_temperature'] = {
   /** @return {!string} The type of return value for the block, an integer. */
   getBlockType: function() {
     return Blockly.Types.NUMBER;
+  }
+};
+
+
+Blockly.Blocks['get_touch'] = {
+
+  init: function() {
+  //  var options = [['1', 'A0'], ['2', 'A1'], ['3', 'A2'], ['4', 'A3']];
+    this.setColour(120);
+    this.appendDummyInput()
+        .appendField("Touch Detected?")
+      //  .appendField(new Blockly.FieldImage("https://elementory.in/wp-content/uploads/2018/03/elt_small.png"))
+        .appendField("PORT#")
+        .appendField(new Blockly.FieldDropdown(Blockly.Arduino.Boards.selected.inputPort), "PORT");
+    this.setOutput(true,  Blockly.Types.BOOLEAN.output);
+    this.setTooltip('Connect to touch sensor');
+  },
+  /** @return {!string} The type of return value for the block, an integer. */
+  getBlockType: function() {
+    return Blockly.Types.BOOLEAN;
+  }
+};
+
+Blockly.Blocks['get_tilt'] = {
+
+  init: function() {
+  //  var options = [['1', 'A0'], ['2', 'A1'], ['3', 'A2'], ['4', 'A3']];
+    this.setColour(120);
+    this.appendDummyInput()
+        .appendField("Tilt Detected?")
+      //  .appendField(new Blockly.FieldImage("https://elementory.in/wp-content/uploads/2018/03/elt_small.png"))
+        .appendField("PORT#")
+        .appendField(new Blockly.FieldDropdown(Blockly.Arduino.Boards.selected.inputPort), "PORT");
+    this.setOutput(true,  Blockly.Types.BOOLEAN.output);
+    this.setTooltip('Connect to tilt sensor');
+  },
+  /** @return {!string} The type of return value for the block, an integer. */
+  getBlockType: function() {
+    return Blockly.Types.BOOLEAN;
   }
 };
 
@@ -243,5 +329,33 @@ Blockly.Blocks['read_memory_time'] = {
 
     this.setOutput(true, 'Number');
     this.setTooltip('Read time from memory');
+  }
+};
+
+Blockly.Blocks['laser'] = {
+  /**
+   * Block for creating a 'set pin' to a state.
+   * @this Blockly.Block
+   */
+  init: function() {
+    this.setHelpUrl('http://arduino.cc/en/Reference/DigitalWrite');
+    this.setColour(Blockly.Blocks.io.HUEOUTPUT);
+    this.appendValueInput('STATE')
+        .appendField('Laser PORT #')
+        .appendField(new Blockly.FieldDropdown(
+            Blockly.Arduino.Boards.selected.outputPortPWM), 'PIN')
+        .setCheck(Blockly.Types.BOOLEAN.checkList);
+    this.setInputsInline(false);
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setTooltip(Blockly.Msg.ARD_DIGITALWRITE_TIP);
+  },
+  /**
+   * Updates the content of the the pin related fields.
+   * @this Blockly.Block
+   */
+  updateFields: function() {
+    Blockly.Arduino.Boards.refreshBlockFieldDropdown(
+        this, 'PIN', 'digitalPins');
   }
 };

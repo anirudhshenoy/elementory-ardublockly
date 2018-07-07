@@ -44,6 +44,7 @@ goog.addDependency("../../../" + dir + "/core/blocks.js", ['Blockly.Blocks'], []
 goog.addDependency("../../../" + dir + "/core/block_render_svg.js", ['Blockly.BlockSvg.render'], ['Blockly.BlockSvg']);
 goog.addDependency("../../../" + dir + "/core/block_svg.js", ['Blockly.BlockSvg'], ['Blockly.Block', 'Blockly.ContextMenu', 'Blockly.RenderedConnection', 'goog.Timer', 'goog.asserts', 'goog.dom', 'goog.math.Coordinate', 'goog.userAgent']);
 goog.addDependency("../../../" + dir + "/core/bubble.js", ['Blockly.Bubble'], ['Blockly.Workspace', 'goog.dom', 'goog.math', 'goog.math.Coordinate', 'goog.userAgent']);
+goog.addDependency("../../../" + dir + "/core/colours.js", ['Blockly.Colours'], []);
 goog.addDependency("../../../" + dir + "/core/comment.js", ['Blockly.Comment'], ['Blockly.Bubble', 'Blockly.Icon', 'goog.userAgent']);
 goog.addDependency("../../../" + dir + "/core/connection.js", ['Blockly.Connection'], ['goog.asserts', 'goog.dom']);
 goog.addDependency("../../../" + dir + "/core/connection_db.js", ['Blockly.ConnectionDB'], ['Blockly.Connection']);
@@ -1725,6 +1726,7 @@ goog.require('Blockly.BlockSvg');
 goog.require('Blockly.BlockSvg.render');
 goog.require('Blockly.Blocks');
 goog.require('Blockly.Bubble');
+goog.require('Blockly.Colours');
 goog.require('Blockly.Comment');
 goog.require('Blockly.Connection');
 goog.require('Blockly.ConnectionDB');
