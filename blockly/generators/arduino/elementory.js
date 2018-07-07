@@ -74,6 +74,22 @@ Blockly.Arduino['get_temperature'] = function(block) {
   return [code, Blockly.Arduino.ORDER_ATOMIC];
 };
 
+Blockly.Arduino['get_touch'] = function(block) {
+  var dropdown_pin = this.getFieldValue('PORT');
+  //Blockly.Arduino.definitions_['define_elementory'] = '#include <elementory.h>\n';
+  Blockly.Arduino.addInclude('', '#include <elementory.h>');
+  var code = 'touch_sensor('+dropdown_pin+')';
+  return [code, Blockly.Arduino.ORDER_ATOMIC];
+};
+
+Blockly.Arduino['get_tilt'] = function(block) {
+  var dropdown_pin = this.getFieldValue('PORT');
+  //Blockly.Arduino.definitions_['define_elementory'] = '#include <elementory.h>\n';
+  Blockly.Arduino.addInclude('', '#include <elementory.h>');
+  var code = 'tilt_sensor('+dropdown_pin+')';
+  return [code, Blockly.Arduino.ORDER_ATOMIC];
+};
+
 Blockly.Arduino['get_ultrasonic_distance'] = function(block) {
   var dropdown_pin = this.getFieldValue('PORT');
   //Blockly.Arduino.definitions_['define_elementory'] = '#include <elementory.h>\n';
@@ -172,3 +188,19 @@ Blockly.Arduino['read_memory_time'] = function(block) {
   return [code, Blockly.Arduino.ORDER_ATOMIC];
 
 };
+
+Blockly.Arduino['laser'] = function(block) {
+  var pin = block.getFieldValue('PIN');
+  var stateOutput = Blockly.Arduino.valueToCode(
+      block, 'STATE', Blockly.Arduino.ORDER_ATOMIC) || 'LOW';
+
+  Blockly.Arduino.reservePin(
+      block, pin, Blockly.Arduino.PinTypes.OUTPUT, 'Digital Write');
+
+  var pinSetupCode = 'pinMode(' + pin + ', OUTPUT);';
+  Blockly.Arduino.addSetup('io_' + pin, pinSetupCode, false);
+
+  var code = 'digitalWrite(' + pin + ', ' + stateOutput + ');\n';
+  return code;
+};
+

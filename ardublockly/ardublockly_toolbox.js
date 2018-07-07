@@ -17,6 +17,9 @@ Ardublockly.TOOLBOX_XML =
 '    <block type="get_light_intensity"></block>'+
 '    <block type="get_knob"></block>'+
 '    <block type="get_ultrasonic_distance"></block>'+
+'    <block type="get_touch"></block>'+
+'    <block type="get_tilt"></block>'+
+
 '    <block type="get_temperature"></block>'+
 '    <block type="io_analogread"></block>' +
 /*'    <block type="save_time"></block>'+
@@ -41,6 +44,11 @@ Ardublockly.TOOLBOX_XML =
 '    </block>' +
 
 '    <block type="io_digitalwrite">' +
+'      <value name="STATE">' +
+'        <block type="io_highlow"></block>' +
+'      </value>' +
+'    </block>' +
+'    <block type="laser">' +
 '      <value name="STATE">' +
 '        <block type="io_highlow"></block>' +
 '      </value>' +
